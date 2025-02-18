@@ -19,8 +19,10 @@ const swaggerOptions = {
             }
         ]
     },
-    apis:[]
+    apis:[
+        "./src/auth/*.js"
+    ]
 }
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions)
-export { swaggerDocs, swaggerUi}
+export { swaggerDocs, swaggerUi }
