@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { register } from "./auth.controller.js"
-import { registerValidator } from "../middlewares/user-validator.js"
+import { register, login } from "./auth.controller.js"
+import { registerValidator, loginValidator } from "../middlewares/user-validator.js"
 import { uploadProfilePicture } from "../middlewares/multer-uploads.js"
 
 const router = Router()
@@ -38,6 +38,35 @@ router.post(
     uploadProfilePicture.single("profilePicture"), 
     registerValidator, 
     register
+)
+
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Inicia sesión de un usuario
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Inicio de sesión exitoso
+ *       400:
+ *         description: Error en la solicitud
+ */
+router.post(
+    "/login",
+    loginValidator,
+    login
 )
 
 export default router

@@ -23,3 +23,10 @@ export const registerValidator = [
     deleteFileOnError,
     handleErrors
 ]
+
+export const loginValidator = [
+    body("email", "No es un email válido").optional().isEmail(),
+    body("username", "Username es en formáto erróneo").optional().isString(),
+    validateField,
+    handleErrors
+]

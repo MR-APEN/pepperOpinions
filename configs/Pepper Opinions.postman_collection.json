@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "edc653dc-b4da-414c-9d17-8a5397bbdf71",
+		"name": "Pepper Opinions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37585551"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Loy",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jloy20",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jloy@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Jloy412?",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Downloads/gato_user2.jpg"
+								}
+							]
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"jloy20\",\r\n    \"password\": \"Jloy412?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
