@@ -1,4 +1,4 @@
-import { hash } from "argon2"
+import { hash, verify } from "argon2"
 import User from "../user/user.model.js"
 import fs from "fs/promises"
 import { join, dirname } from "path"
@@ -77,6 +77,47 @@ export const updateProfilePicture = async (req, res) => {
         return res.status(500).json({
             success: false,
             message: "Error al actualizar foto de perfil",
+            error: err.message
+        })
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    try {
+        const { _id } = req.usuario
+        const { newPassword, oldPassword } = req.body
+
+        const user = await User.findById(_id)
+
+        const matchNewPassword = await verify(user.password, newPassword)
+        if(matchNewPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "La nueva contraseña no puede ser igual a la anterior"
+            })
+        }
+
+        const matchOldPassword = await verify(user.password, oldPassword)
+        if(!matchOldPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Tienes que ingresar tu contraseña actual....."
+            })
+        }
+
+        const encryptedPassword = await hash(newPassword)
+
+        await User.findByIdAndUpdate(_id, {password: encryptedPassword}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "La contraseña se actualizado!!!"
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al actualizar la contraseña",
             error: err.message
         })
     }

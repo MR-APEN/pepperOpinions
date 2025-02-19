@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { updateUser, updateProfilePicture } from "./user.controller.js"
-import { updateUserValidator, updateProfilePictureValidator } from "../middlewares/user-validator.js"
+import { updateUser, updateProfilePicture, updatePassword } from "./user.controller.js"
+import { updateUserValidator, updateProfilePictureValidator, updatePasswordValidator } from "../middlewares/user-validator.js"
 import { uploadProfilePicture } from "../middlewares/multer-uploads.js"
 
 const router = Router()
@@ -60,6 +60,36 @@ router.patch(
     "/updateProfilePicture",
     uploadProfilePicture.single("profilePicture"),
     updateProfilePictureValidator,
-    updateProfilePicture)
+    updateProfilePicture
+)
+
+/**
+ * @swagger
+ * /updatePassword:
+ *   patch:
+ *     summary: Actualiza la contraseña de un usuario
+ *     tags: [User]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               newPassword:
+ *                 type: string
+ *               oldPassword:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Contraseña actualizada
+ *       400:
+ *         description: Error en la solicitud
+ */
+router.patch(
+    "/updatePassword",
+    updatePasswordValidator,
+    updatePassword
+)
 
 export default router

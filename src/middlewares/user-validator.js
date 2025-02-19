@@ -44,3 +44,16 @@ export const updateProfilePictureValidator = [
     deleteFileOnError,
     handleErrors
 ]
+
+export const updatePasswordValidator = [
+    validateJWT,
+    body("newPassword").isStrongPassword({
+        minLength: 8,
+        minLowercase:1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1
+    }),
+    validateField,
+    handleErrors
+]
