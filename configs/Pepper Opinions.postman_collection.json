@@ -19,27 +19,27 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Juan",
+									"value": "Alejandro",
 									"type": "text"
 								},
 								{
 									"key": "surname",
-									"value": "Loy",
+									"value": "Solis",
 									"type": "text"
 								},
 								{
 									"key": "username",
-									"value": "jloy20",
+									"value": "alejo10",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "jloy@gmail.com",
+									"value": "solis@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "Jloy412?",
+									"value": "$oliS201",
 									"type": "text"
 								},
 								{
@@ -60,7 +60,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"jloy20\",\r\n    \"password\": \"Jloy412?\"\r\n}",
+							"raw": "{\r\n    \"email\": \"solis@gmail.com\",\r\n    \"password\": \"$oliS201\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -68,6 +68,84 @@
 							}
 						},
 						"url": "http://localhost:3003/pepperOpinions/v1/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2NGYzMTQ4OGRmNzExMTFmYjNjNmMiLCJpYXQiOjE3NDAwMDEyMzQsImV4cCI6MTc0MDAwNDgzNH0.usirIlygaM0EZsRCgbnk9HiGfCne3DwTkDJ5qa16Lew"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Alejandro\",\r\n    \"surname\": \"Apen\",\r\n    \"username\": \"10-apen\",\r\n    \"email\": \"aapen10@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/user/updateUser"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar foto de perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2NTBiY2VkMjRlZTc1YzA4ODNlY2IiLCJpYXQiOjE3NDAwMDMwNjgsImV4cCI6MTc0MDAwNjY2OH0.CN5fxPUdmmFo5XCQWVh--mEgLtdbuh8xqvSWbratsPU"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Downloads/gato_update.jpg"
+								}
+							]
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/user/updateProfilePicture"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar contraseña",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2NTBiY2VkMjRlZTc1YzA4ODNlY2IiLCJpYXQiOjE3NDAwMDU5OTIsImV4cCI6MTc0MDAwOTU5Mn0.IYJNlL8I_tSys5sqGfU96a8WQBeuc4XtLDsSxMUZOtY"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"Solis#4125\",\r\n    \"oldPassword\": \"$oliS201\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/user/updatePassword"
 					},
 					"response": []
 				}
