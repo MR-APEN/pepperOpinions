@@ -1,8 +1,9 @@
-import { body } from "express-validator"
+import { body, param } from "express-validator"
 import { validateField } from "./field-validator.js"
 import { deleteFileOnError } from "./delete-file-on-error.js"
 import { handleErrors } from "./handle-errors.js"
-import { emailExist, userNameExist } from "../helpers/db-validator.js"
+import { emailExist, userNameExist, userExist } from "../helpers/db-validator.js"
+import { validateJWT } from "./jwt-validator.js"
 
 export const registerValidator = [
     body("name", "El nombre es requerido").notEmpty(),
@@ -27,6 +28,12 @@ export const registerValidator = [
 export const loginValidator = [
     body("email", "No es un email válido").optional().isEmail(),
     body("username", "Username es en formáto erróneo").optional().isString(),
+    validateField,
+    handleErrors
+]
+
+export const updateUserValidator = [
+    validateJWT,
     validateField,
     handleErrors
 ]
