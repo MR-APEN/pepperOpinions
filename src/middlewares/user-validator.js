@@ -37,3 +37,10 @@ export const updateUserValidator = [
     validateField,
     handleErrors
 ]
+
+export const updateProfilePictureValidator = [
+    validateJWT,
+    validateField,
+    deleteFileOnError,
+    handleErrors
+]
