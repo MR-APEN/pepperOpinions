@@ -258,6 +258,114 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Publication",
+			"item": [
+				{
+					"name": "Crear publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MzdiYjdmZTg3ZGRjZDExYjhlZmQiLCJpYXQiOjE3NDAyMDA4ODMsImV4cCI6MTc0MDIwNDQ4M30.JxGEDMyeEtqFC-JQ4oL7nriHBmYNrmRgnxGye4oYSsM"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Torneo Soccer\",\r\n    \"maintext\": \"Hoy gane el primer lugar en el torneo\",\r\n    \"category\": \"67b94d0a07f3453e10e1e3a9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/publication/createPublication"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MzdiYjdmZTg3ZGRjZDExYjhlZmQiLCJpYXQiOjE3NDAyMDA4ODMsImV4cCI6MTc0MDIwNDQ4M30.JxGEDMyeEtqFC-JQ4oL7nriHBmYNrmRgnxGye4oYSsM"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Torneo futbol\",\r\n    \"maintext\": \"Ganee el primer lugar del torneo de la Capital\",\r\n    \"category\": \"67b8a5574ca93d0e6b17cfa2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/pepperOpinions/v1/publication/updatePublication/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"pepperOpinions",
+								"v1",
+								"publication",
+								"updatePublication",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67b95d0ea2af8c5164f96620"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar publicación",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I5MzdiYjdmZTg3ZGRjZDExYjhlZmQiLCJpYXQiOjE3NDAyMDA4ODMsImV4cCI6MTc0MDIwNDQ4M30.JxGEDMyeEtqFC-JQ4oL7nriHBmYNrmRgnxGye4oYSsM"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3003/pepperOpinions/v1/publication/deletePublication/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"pepperOpinions",
+								"v1",
+								"publication",
+								"deletePublication",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67b95d0ea2af8c5164f96620"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
