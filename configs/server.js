@@ -9,6 +9,7 @@ import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import categoryRoutes from "../src/category/category.routes.js"
 import publicationRoutes from "../src/publication/publication.routes.js"
+import commentRoutes from "../src/comment/comment.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -38,6 +39,7 @@ const routes = (app) => {
     app.use("/pepperOpinions/v1/user", userRoutes)
     app.use("/pepperOpinions/v1/category", categoryRoutes)
     app.use("/pepperOpinions/v1/publication", publicationRoutes)
+    app.use("/pepperOpinions/v1/comment", commentRoutes)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
