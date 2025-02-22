@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "edc653dc-b4da-414c-9d17-8a5397bbdf71",
+		"_postman_id": "0f51bc40-412f-412f-b1ca-f1d731a5ae3d",
 		"name": "Pepper Opinions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "37585551"
@@ -45,7 +45,7 @@
 								{
 									"key": "profilePicture",
 									"type": "file",
-									"src": "/C:/Users/Informatica/Downloads/gato_user2.jpg"
+									"src": "/C:/Users/50258/Downloads/user.jpg"
 								}
 							]
 						},
@@ -60,7 +60,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"solis@gmail.com\",\r\n    \"password\": \"$oliS201\"\r\n}",
+							"raw": "{\r\n    \"email\": \"japen@gmail.com\",\r\n    \"password\": \"Ja123456#\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,6 +146,114 @@
 							}
 						},
 						"url": "http://localhost:3003/pepperOpinions/v1/user/updatePassword"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Crear categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4YTU1NzRjYTkzZDBlNmIxN2NmYTciLCJpYXQiOjE3NDAxOTE3OTQsImV4cCI6MTc0MDE5NTM5NH0.bjtmmWWVRPJUjmvvvUojiSd5U4k7TXy3J9_A2Ed8VPY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Deportes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3003/pepperOpinions/v1/category/createCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4YTU1NzRjYTkzZDBlNmIxN2NmYTciLCJpYXQiOjE3NDAxOTE3OTQsImV4cCI6MTc0MDE5NTM5NH0.bjtmmWWVRPJUjmvvvUojiSd5U4k7TXy3J9_A2Ed8VPY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Comedia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3003/pepperOpinions/v1/category/updateCategory/:uid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"pepperOpinions",
+								"v1",
+								"category",
+								"updateCategory",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67b9386b0dd10544ff492346"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I4YTU1NzRjYTkzZDBlNmIxN2NmYTciLCJpYXQiOjE3NDAxOTE3OTQsImV4cCI6MTc0MDE5NTM5NH0.bjtmmWWVRPJUjmvvvUojiSd5U4k7TXy3J9_A2Ed8VPY"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3003/pepperOpinions/v1/category/deleteCategory/:uid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3003",
+							"path": [
+								"pepperOpinions",
+								"v1",
+								"category",
+								"deleteCategory",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67b9386b0dd10544ff492346"
+								}
+							]
+						}
 					},
 					"response": []
 				}
